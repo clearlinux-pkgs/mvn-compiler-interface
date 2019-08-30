@@ -6,12 +6,14 @@
 #
 Name     : mvn-compiler-interface
 Version  : 0.13.15
-Release  : 2
+Release  : 3
 URL      : https://piccolo.link/sbt-0.13.15.tgz
 Source0  : https://piccolo.link/sbt-0.13.15.tgz
 Source1  : https://repo.maven.apache.org/maven2/com/typesafe/sbt/compiler-interface/0.13.15/compiler-interface-0.13.15-sources.jar
-Source2  : https://repo1.maven.org/maven2/com/typesafe/sbt/compiler-interface/0.13.15/compiler-interface-0.13.15.pom
-Source99 : https://piccolo.link/sbt-0.13.15.tgz.asc
+Source2  : https://repo.maven.apache.org/maven2/com/typesafe/sbt/compiler-interface/0.13.5/compiler-interface-0.13.5-sources.jar
+Source3  : https://repo1.maven.org/maven2/com/typesafe/sbt/compiler-interface/0.13.15/compiler-interface-0.13.15.pom
+Source4  : https://repo1.maven.org/maven2/com/typesafe/sbt/compiler-interface/0.13.5/compiler-interface-0.13.5.pom
+Source5 : https://piccolo.link/sbt-0.13.15.tgz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause
@@ -29,6 +31,7 @@ data components for the mvn-compiler-interface package.
 
 
 %prep
+%setup -q -n sbt
 
 %build
 
@@ -36,8 +39,14 @@ data components for the mvn-compiler-interface package.
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.15
 cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.15/compiler-interface-0.13.15-sources.jar
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.5
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.5/compiler-interface-0.13.5-sources.jar
+
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.15
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.15/compiler-interface-0.13.15.pom
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.15/compiler-interface-0.13.15.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.5
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.5/compiler-interface-0.13.5.pom
 
 
 %files
@@ -47,3 +56,5 @@ cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/typesafe/sbt/compil
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.15/compiler-interface-0.13.15-sources.jar
 /usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.15/compiler-interface-0.13.15.pom
+/usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.5/compiler-interface-0.13.5-sources.jar
+/usr/share/java/.m2/repository/com/typesafe/sbt/compiler-interface/0.13.5/compiler-interface-0.13.5.pom
